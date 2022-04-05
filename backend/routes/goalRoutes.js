@@ -16,7 +16,7 @@ const {
 // Lines 6-9 can be refactored to:
 router.route('/').get(getGoals).post(setGoals)
 
-router.route('/').delete(deleteGoals).put(updateGoals)
+router.route('/:id').delete(deleteGoals).put(updateGoals)
 
 
 module.exports = router
