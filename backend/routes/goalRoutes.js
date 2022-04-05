@@ -1,28 +1,22 @@
 const express = require('express')
 const router = express.Router()
+// Refactored to bring function in from controller
+const { 
+    getGoals, 
+    setGoals, 
+    updateGoals, 
+    deleteGoals
+} = require('../controllers/goalcontroller') 
 
-router.get('/', (req, res) => {
-    res.status(200).json({
-        message: 'Get Goals..'
-    })
-})
+// router.get('/', getGoals)
+// router.post('/', setGoals)
+// router.put('/:id', updateGoals)
+// router.delete('/:id', deleteGoals)
 
-router.post('/', (req,res) => {
-    res.status(200).json({
-        message: "Set Goals.."
-    })
-})
+// Lines 6-9 can be refactored to:
+router.route('/').get(getGoals).post(setGoals)
 
-router.put('/:id', (req,res) => {
-    res.status(200).json({
-        message: `Update goals ${req.params.id}`
-    })
-})
+router.route('/').delete(deleteGoals).put(updateGoals)
 
-router.delete('/:id', (req, res) => {
-    res.status(200).json({
-        message: `Delete goals ${req.params.id}`
-    })
-})
 
 module.exports = router
