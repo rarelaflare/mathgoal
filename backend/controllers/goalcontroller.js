@@ -13,6 +13,11 @@ const getGoals = (req, res) => {
 // @access Private
 
 const setGoals = (req, res) => {
+    if(!req.body.text) {
+        res.status(400)
+        throw new Error('Please add text field')
+    }
+    
     res.status(200).json({
         message: 'Set goals.. This is a Sprint not a Lap!...'
     })
