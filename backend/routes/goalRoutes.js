@@ -6,14 +6,14 @@ const {
     setGoals, 
     updateGoals, 
     deleteGoals
-} = require('../controllers/goalcontroller') 
+} = require('../controllers/goalController') 
 
 // router.get('/', getGoals)
 // router.post('/', setGoals)
 // router.put('/:id', updateGoals)
 // router.delete('/:id', deleteGoals)
 
-// Lines 6-9 can be refactored to:
+// Lines 4-14 can be refactored to:
 router.route('/').get(getGoals).post(setGoals)
 
 router.route('/:id').delete(deleteGoals).put(updateGoals)
